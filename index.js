@@ -5,13 +5,18 @@ require('dotenv').config();
 
 const token = process.env.TOKEN;
 const PREFIX = '!';
-const LIMIT = 100000;
+const LIMIT = 2500;
 
 // ONLINE MESSAGE
 bot.on('ready', () => {
   console.log('AntwonBot is online!');
 });
 
+bot.on('message', (message) => {
+  if(message.content.toLowerCase().includes('wylin')) {
+    message.channel.sendMessage('wew lad');
+  }
+})
 // COMMANDS
 bot.on('message', msg => {
 
@@ -39,7 +44,7 @@ bot.on('message', msg => {
               }
             });
 
-            msg.channel.sendMessage(`"${args[1].toLowerCase()}" said ${wordCount} time(s).`);
+            msg.channel.sendMessage(`"${args[1].toLowerCase()}" said ${wordCount} time(s) recently.`);
           })
         .catch(err => console.log(err));
 
@@ -52,8 +57,12 @@ bot.on('message', msg => {
         msg.channel.sendMessage(`Use: '!wc yourWordHere' to search how many times you have used that word.`);
         break;
 
+    case 'testing':
+        msg.channel.sendMessage(`testing`);
+
     case 'commands':
         msg.channel.sendMessage(`!help, !commands, !wc yourWordHere`);
+
   }
 })
 
