@@ -21,6 +21,8 @@ bot.on('message', (message) => {
 // COMMANDS
 bot.on('message', msg => {
 
+  if(!msg.content.startsWith(PREFIX)) { return; }
+
   let args = msg.content.substring(PREFIX.length).split(" ");
 
   switch (args[0]) {
@@ -62,6 +64,22 @@ bot.on('message', msg => {
       msg.channel.send("", { files: ["https://media.giphy.com/media/1AIeYgwnqeBUxh6juu/giphy.gif"] });
       break;
 
+    case 'eyeroll':
+      msg.channel.send("", {files: ["./assets/eyeroll.jpg"]});
+      break;
+
+    case 'ohok':
+      msg.channel.send("", {files: ["./assets/ohok.mp4"]});
+      break;
+
+    case 'fat':
+      msg.channel.send("", {files: ["./assets/fat.jpg"]});
+      break;
+
+    case 'um':
+      msg.channel.send("", {files: ["./assets/um.jpg"]});
+      break;
+
     case 'time':
       const date = new Date();
       const hour = date.getHours();
@@ -91,7 +109,7 @@ bot.on('message', msg => {
       break;
 
     case 'commands':
-      msg.channel.sendMessage(`!help, !commands, !wc yourWordHere`);
+      msg.channel.sendMessage(`!help, !commands, !wc yourWordHere, !vanjie, !ohok, !oop, !time, !eyeroll, !surejan, !fat, !um`);
       break;
 
 
